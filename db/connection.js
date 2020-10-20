@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const mongoURI = `mongodb://localhost:27017/owners`;
+const mongoURI = `mongodb://localhost:27017/cats`;
 
 const config = {
   useUnifiedTopology: true,
@@ -13,7 +13,5 @@ const db = mongoose.connection;
 db.on("error", (err) => console.log(err.message + " is mongod not running?"));
 db.on("connected", () => console.log("mongo connected: ", mongoURI));
 db.on("disconnected", () => console.log("mongo disconnected"));
-
-// db.close();
 
 module.exports = mongoose;
