@@ -16,10 +16,10 @@ app.get("/", (req, res) => {
   });
 });
 
-const ownerRouter = require("./controllers/ownerRoutes");
+const ownerRouter = require("./controllers/Owner.js");
 app.use("/owners", ownerRouter);
 
-const catRouter = require("./controllers/catRoutes");
+const catRouter = require("./controllers/Cat.js");
 app.use("/cats", catRouter);
 
 app.use(cors());
