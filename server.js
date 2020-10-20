@@ -13,11 +13,15 @@ app.use(logger("dev"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+// app.get("/", (req, res) => {
+//   res.json({
+//     status: 200,
+//     msg: "you have hit the default route...nothing to see here",
+//   });
+// });
+
 app.get("/", (req, res) => {
-  res.json({
-    status: 200,
-    msg: "you have hit the default route...nothing to see here",
-  });
+  res.json({ hello: "Hello World!" });
 });
 
 const ownerRouter = require("./controllers/Owner.js");
