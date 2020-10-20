@@ -7,6 +7,8 @@ const { PORT = 4000, NODE_ENV = "development" } = process.env;
 
 const cors = require("cors");
 
+NODE_ENV === "production" ? app.use(cors(corsOptions)) : app.use(cors());
+
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
