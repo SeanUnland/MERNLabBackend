@@ -15,7 +15,7 @@ router.get(`/`, async (req, res) => {
 });
 
 // CREATE route - POST
-router.post(`/:catid`, async (req, res) => {
+router.post(`/`, async (req, res) => {
   const owner = await Owner.create(req.body);
   const cat = await Cat.findById(req.params.catid);
   cat.owners.push(owner._id);
