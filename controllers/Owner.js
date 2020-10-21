@@ -23,6 +23,14 @@ router.post(`/`, async (req, res) => {
   res.json({ status: 200, data: owner });
 });
 
+router.get("/", async (req, res) => {
+  const owner = await Owner.find({}).populate("cats");
+  res.json({
+    status: 200,
+    data: owner,
+  });
+});
+
 // UPDATE route - PUT
 router.put("/:id", async (req, res) => {
   const owner = await Owner.findByIdAndUpdate(req.params.id, req.body, {
