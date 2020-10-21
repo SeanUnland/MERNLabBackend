@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require("../db/connection");
+const Cat = require("../models/Cat");
 const Owner = require("../models/Owner");
 const db = mongoose.connection;
 
@@ -14,8 +15,11 @@ router.get(`/`, async (req, res) => {
 });
 
 // CREATE route - POST
-router.post(`/`, async (req, res) => {
+router.post(`/:catid`, async (req, res) => {
   const owner = await Owner.create(req.body);
+  const cat = await Cat.findById(req.params.catid);
+  cat.owners.push(owner._id);
+  cat.save();
   res.json({ status: 200, data: owner });
 });
 
