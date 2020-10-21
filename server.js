@@ -9,16 +9,11 @@ const cors = require("cors");
 
 NODE_ENV === "production" ? app.use(cors(corsOptions)) : app.use(cors());
 
-app.use(logger("dev"));
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+// app.use(cors());
 
-// app.get("/", (req, res) => {
-//   res.json({
-//     status: 200,
-//     msg: "you have hit the default route...nothing to see here",
-//   });
-// });
+app.use(logger("dev"));
+// app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.json({ hello: "Hello World!" });
