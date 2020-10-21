@@ -3,7 +3,7 @@ const express = require("express");
 const logger = require("morgan");
 const app = express();
 // const PORT = process.env.PORT;
-const { PORT = 4000, NODE_ENV = "development" } = process.env;
+const { PORT = 3000, NODE_ENV = "development" } = process.env;
 
 const cors = require("cors");
 const corsOptions = require("./configs/cors");
@@ -25,8 +25,6 @@ app.use("/owners", ownerRouter);
 
 const catRouter = require("./controllers/Cat.js");
 app.use("/cats", catRouter);
-
-app.use(cors());
 
 app.listen(PORT, () => {
   console.log(`listening in on port: ${PORT}`);
